@@ -110,6 +110,35 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+.button {
+  background-color: #ffd700; /* Mailchimp yellow */
+  color: #000; /* Black text */
+  padding: 12px 24px;
+  border: 1px solid #000; /* Black border */
+  border-radius: 25px; /* Rounded edges */
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition:
+    border 0.2s ease,
+    transform 0.2s ease;
+  position: relative;
+}
+
+.button:hover {
+  transform: translateY(-4px); /* Moves the button up */
+  border-top: 1px solid #000; /* Keeps the top border consistent */
+  border-right: 1px solid #000; /* Keeps the right border consistent */
+  border-left: 1px solid #000; /* Keeps the left border consistent */
+  border-bottom: 6px solid #000; /* Increases the bottom border */
+}
+
+.button:active {
+  transform: translateY(0); /* Resets to original position */
+  border-bottom: 2px solid #000; /* Restores original border width */
+  background-color: #ffc300; /* Slightly darker yellow */
+}
+
 /* Small devices (up to 400px) */
 @media only screen and (max-width: 400px) {
   .card {
