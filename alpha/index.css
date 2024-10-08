@@ -1,6 +1,6 @@
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #f0f0f0;
+  background-color: #f6f6f4; /* Light background color from Mailchimp */
   margin: 0;
   padding: 20px;
   display: flex;
@@ -9,28 +9,45 @@ body {
 }
 
 .card {
-  background-color: #ffffff;
+  background-color: #ffffff; /* White background for cards */
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin: 20px;
   width: 800px;
   padding: 16px;
   transition: all 0.3s ease-in-out;
+  border: 2px solid #ffe01b; /* Mailchimp yellow border */
 }
 
 .card__link {
   font-size: 1rem;
-  color: blue;
+  color: #007c89; /* Mailchimp blue */
+  text-decoration: underline;
+  transition: color 0.3s;
+}
+
+.card__link:hover {
+  color: #ffe01b; /* Mailchimp yellow on hover */
 }
 
 .card__header {
   margin-bottom: 12px;
+  border-bottom: 2px solid #ffe01b; /* Yellow border under the header */
+}
+
+.card__header-video {
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: center;
 }
 
 .card__title {
   font-weight: 600;
   font-size: 1.2rem;
-  color: #333;
+  color: #333333;
+  /* background-color: #ffe01b; Highlight title with yellow */
+  padding: 4px;
+  border-radius: 4px;
 }
 
 .card__body {
@@ -52,7 +69,7 @@ body {
 }
 
 .card__list-item:hover {
-  background-color: #e0e0e0;
+  background-color: #ffebb8; /* Light yellow shade for hover */
   transform: scale(1.05);
 }
 
@@ -64,18 +81,41 @@ body {
 
 .sub-list-item {
   font-size: 0.9rem;
-  color: #555;
+  color: #555555;
   margin: 4px 0;
 }
 
 .card__list-item:active {
-  background-color: #d0d0d0;
-  border: 1px solid #333;
+  background-color: #ffe01b; /* Active state with yellow */
+  color: #333333;
+  border: 1px solid #333333;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* Phone (up to 600px) */
-@media only screen and (max-width: 600px) {
+/* Small devices (up to 400px) */
+@media only screen and (max-width: 400px) {
+  .card {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-width: 1px; /* Thinner border for smaller screens */
+  }
+
+  .card__title {
+    font-size: 0.9rem;
+  }
+
+  .card__list-item {
+    padding: 5px;
+  }
+
+  .sub-list-item {
+    font-size: 0.75rem;
+  }
+}
+
+/* Phone (400px to 600px) */
+@media only screen and (min-width: 400px) and (max-width: 600px) {
   .card {
     width: 100%;
     padding: 12px;
