@@ -71,6 +71,14 @@ body {
 .card__body {
   margin-bottom: 16px;
 }
+.card__body--center {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
 
 .card__list {
   list-style: none;
