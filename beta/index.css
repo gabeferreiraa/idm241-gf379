@@ -264,11 +264,10 @@ body {
   transform: translateX(100%); /* Move off-screen to the right */
   transition: transform 2s ease-in-out;
   z-index: 1000; /* Ensure it appears above other content */
-
   font-size: 10rem;
 }
 
 /* Slider active state */
 .slider.slide {
-  transform: translateX(-200%); /* Move off-screen to the left */
+  transform: translateX(-100%); /* Move off-screen to the left */
 }
