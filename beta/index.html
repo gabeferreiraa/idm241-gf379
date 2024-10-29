@@ -13,132 +13,69 @@
     
     <div class="card">
         <div class="card__header">
-            <h2 class="card__title">My Micro interactions</h2>
+            <h2 class="card__title">Beta Description</h2>
         </div>
         <div class="card__body--center">
             <div>
-              <a class="card__link" target="_blank" href="https://www.mailchimp.com">mailchimp.com</a>
-            </div>
-            <div>
-                <button class="button" id="slideTrigger">start free trial</button>
+              <a class="card__link" target="_blank" href="/alpha/">mailchimp.com</a>
             </div>
         </div>
     </div> 
-    <div class="card">
-    <div class="card__header">
-        <h2 class="card__title">Triggers for Start Free Trial Button</h2>
-    </div>
-    <div class="card__body">
-        <ul class="card__list">
-            <li class="card__list-item">Hover on</li>
-            <li class="card__list-item">Hover off</li>
-            <li class="card__list-item">Mouse down</li>
-            <li class="card__list-item">Mouse up</li>
-        </ul>
-    </div>
-</div> 
 
 <div class="card">
     <div class="card__header">
-        <h2 class="card__title">Rules</h2>
+        <h2 class="card__title">Cursor Changes</h2>
     </div>
     <div class="card__body">
+        <h3>Triggers</h3>
+        <p>Cursor changes are triggered when the user hovers over the interactive area or presses down on the button.</p>
+
+        <h3>Rules</h3>
         <ul class="card__list">
-            <li class="card__list-item">Hover on
-                <ul class="sub-list">
-                    <li class="sub-list-item">Changes cursor to custom dot and outline</li>
-                    <li class="sub-list-item">Cursor expands slightly on hover (transition: 0.15s ease)</li>
-                    <li class="sub-list-item">Yellow edge of button lifts slightly</li>
-                </ul>
-            </li>
-            <li class="card__list-item">Hover off
-                <ul class="sub-list">
-                    <li class="sub-list-item">Cursor reverts to default size</li>
-                    <li class="sub-list-item">Button edge resets</li>
-                </ul>
-            </li>
-            <li class="card__list-item">Mouse down
-                <ul class="sub-list">
-                    <li class="sub-list-item">Cursor contracts slightly to indicate pressing (transition: 0.15s ease)</li>
-                    <li class="sub-list-item">Button edge depresses halfway</li>
-                </ul>
-            </li>
-            <li class="card__list-item">Mouse up
-                <ul class="sub-list">
-                    <li class="sub-list-item">Cursor returns to original size</li>
-                    <li class="sub-list-item">Triggers navigation to a new page with slider transition</li>
-                </ul>
-            </li>
+            <li class="card__list-item">The cursor changes to a custom dot with an outline when hovered over the button.</li>
+            <li class="card__list-item">The cursor outline expands on hover and contracts on press.</li>
         </ul>
+
+        <h3>Feedback</h3>
+        <ul class="card__list">
+            <li class="card__list-item"><strong>Visual:</strong> The cursor dot becomes slightly larger on hover and contracts to indicate pressing.</li>
+            <li class="card__list-item"><strong>Animation:</strong> Transitions are smooth with a 0.15s ease effect to enhance user experience.</li>
+        </ul>
+
+        <h3>Loops & Modes</h3>
+        <p>No additional loops or modes are defined for cursor changes. The interaction resets after each hover or press event.</p>
     </div>
-    <div class="card__footer"></div>
 </div>
 
 <div class="card">
     <div class="card__header">
-        <h2 class="card__title">Feedback</h2>
+        <h2 class="card__title">Button Interactions</h2>
     </div>
     <div class="card__body">
+        <h3>Triggers</h3>
+        <p>The button interaction is triggered on hover and mouse down events.</p>
+
+        <h3>Rules</h3>
         <ul class="card__list">
-            <li class="card__list-item">Hover on
-                <ul class="sub-list">
-                    <li class="sub-list-item">Custom cursor activates, expanding slightly</li>
-                    <li class="sub-list-item">Yellow edge of button lifts</li>
-                </ul>
-            </li>
-            <li class="card__list-item">Hover off
-                <ul class="sub-list">
-                    <li class="sub-list-item">Custom cursor resets to original size</li>
-                    <li class="sub-list-item">Button edge returns to original position</li>
-                </ul>
-            </li>
-            <li class="card__list-item">Mouse down
-                <ul class="sub-list">
-                    <li class="sub-list-item">Cursor contracts to indicate press</li>
-                    <li class="sub-list-item">Yellow edge depresses halfway</li>
-                </ul>
-            </li>
-            <li class="card__list-item">Mouse up
-                <ul class="sub-list">
-                    <li class="sub-list-item">Cursor returns to full size</li>
-                    <li class="sub-list-item">Slider moves to next page</li>
-                </ul>
-            </li>
+            <li class="card__list-item">The button edge slightly lifts on hover to indicate interactivity.</li>
+            <li class="card__list-item">On mouse down, the button depresses halfway to show it is being pressed.</li>
+            <li class="card__list-item">The button returns to its original position on mouse up.</li>
         </ul>
+
+        <h3>Feedback</h3>
+        <ul class="card__list">
+            <li class="card__list-item"><strong>Visual:</strong> The button color changes to a bright yellow (#ffe01b) on hover and a deeper yellow (#ffc300) on press.</li>
+            <li class="card__list-item"><strong>Haptic:</strong> A slight vibration may occur on press if the device supports haptic feedback.</li>
+            <li class="card__list-item"><strong>Screen Transition:</strong> On mouse up, the interaction completes, and the user is navigated to a new screen. A div element temporarily slides in from the right side as a transitional effect.</li>
+        </ul>
+
+        <h3>Loops & Modes</h3>
+        <p>The temporary div animation slides in from the right when the new screen loads, providing additional visual feedback. This div remains visible momentarily before sliding back out, marking the completion of the transition.</p>
     </div>
-    <div class="card__footer"></div>
 </div>
 
-<div class="card">
-    <div class="card__header">
-        <h2 class="card__title">Loops &amp; Modes</h2>
-    </div>
-    <div class="card__body">
-        <ul class="card__list">
-            <li class="card__list-item">Loops
-                <ul class="sub-list">
-                    <li class="sub-list-item">None</li>
-                </ul>
-            </li>
-            <li class="card__list-item">Modes
-                <ul class="sub-list">
-                    <li class="sub-list-item">None</li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    <div class="card__footer"></div>
-</div>
 
-    <div class="card">
-        <div class="card__header-video">
-  <div class="card__video-container">
-    <video controls>
-        <source src="/alpha/idm241-micro-interaction-1.mov" type="video/mp4" alt="Button component video">
-    </video>
-  </div>
-</div>
-    </div>
+
 <!-- Custom Cursor Elements -->
 <div class="cursor-dot"></div>
 <div class="cursor-outline"></div>
