@@ -46,31 +46,34 @@
         <ul class="card__list">
             <li class="card__list-item">Hover on
                 <ul class="sub-list">
-                    <li class="sub-list-item">Changes cursor to pointer</li>
-                    <li class="sub-list-item">Yellow edge of button slightly lifts to indicate interactability</li>
+                    <li class="sub-list-item">Cursor changes to pointer</li>
+                    <li class="sub-list-item">Button edge lifts slightly (transition: 0.3s ease)</li>
+                    <li class="sub-list-item">Button background color subtly shifts to Mailchimp yellow (#ffe01b)</li>
                 </ul>
             </li>
             <li class="card__list-item">Hover off
                 <ul class="sub-list">
-                    <li class="sub-list-item">Cursor returns to default</li>
-                    <li class="sub-list-item">Yellow edge returns to button perimeter</li>
+                    <li class="sub-list-item">Cursor reverts to default</li>
+                    <li class="sub-list-item">Button edge resets to original position (transition: 0.3s ease)</li>
+                    <li class="sub-list-item">Button background color returns to white</li>
                 </ul>
             </li>
             <li class="card__list-item">Mouse down
                 <ul class="sub-list">
                     <li class="sub-list-item">Cursor stays as pointer</li>
-                    <li class="sub-list-item">Yellow edge depresses halfway, giving "pressed" feedback</li>
+                    <li class="sub-list-item">Button edge depresses halfway (transition: 0.2s ease)</li>
+                    <li class="sub-list-item">Background changes to a slightly darker yellow (#ffc300)</li>
                 </ul>
             </li>
             <li class="card__list-item">Mouse up
                 <ul class="sub-list">
-                    <li class="sub-list-item">Releases "pressed" feedback and triggers navigation to the next page</li>
+                    <li class="sub-list-item">Triggers navigation to a new page</li>
+                    <li class="sub-list-item">Slider animation transitions left (transition: 2s ease-in-out)</li>
                 </ul>
             </li>
         </ul>
     </div>
-    <div class="card__footer">
-    </div>
+    <div class="card__footer"></div>
 </div>
 
 <div class="card">
@@ -81,31 +84,32 @@
         <ul class="card__list">
             <li class="card__list-item">Hover on
                 <ul class="sub-list">
-                    <li class="sub-list-item">Changes cursor to pointer</li>
-                    <li class="sub-list-item">Yellow edge of button slightly lifts to indicate interactability</li>
+                    <li class="sub-list-item">Cursor changes to pointer</li>
+                    <li class="sub-list-item">Yellow edge of button lifts slightly (transition: 0.3s ease)</li>
                 </ul>
             </li>
             <li class="card__list-item">Hover off
                 <ul class="sub-list">
                     <li class="sub-list-item">Cursor goes back to pointer</li>
-                    <li class="sub-list-item">Yellow edge returns to button perimeter</li>
+                    <li class="sub-list-item">Yellow edge goes back to button edge</li>
                 </ul>
             </li>
             <li class="card__list-item">Mouse down
                 <ul class="sub-list">
-                    <li class="sub-list-item">Cursor stays as pointer</li>
-                    <li class="sub-list-item">Yellow edge depresses halfway, giving "pressed" feedback</li>
+                    <li class="sub-list-item">Cursor remains as pointer</li>
+                    WOOOOOOOOOOO
+                    <li class="sub-list-item">Yellow edge depresses halfway while holding (transition: 0.2s ease)</li>
                 </ul>
             </li>
             <li class="card__list-item">Mouse up
                 <ul class="sub-list">
-                    <li class="sub-list-item">Releases "pressed" feedback and triggers navigation to the next page</li>
+                    <li class="sub-list-item">Releases "pressed" state</li>
+                    <li class="sub-list-item">Initiates slider transition with 2s ease-in-out effect</li>
                 </ul>
             </li>
         </ul>
     </div>
-    <div class="card__footer">
-    </div>
+    <div class="card__footer"></div>
 </div>
 
 <div class="card">
@@ -126,8 +130,7 @@
             </li>
         </ul>
     </div>
-    <div class="card__footer">
-    </div>
+    <div class="card__footer"></div>
 </div>
 
     <div class="card">
