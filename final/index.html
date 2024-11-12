@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/normalize.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./index.css">
+    <script src="./index.js" defer></script>
+    <title>Micro Interactions Final</title>
+</head>
+<body>
+        <div class="card">
+        <div class="card__header">
+            <h2 class="card__title">Final Description</h2>
+        </div>
+    </div> 
+    <div class="card">
+    <div class="card__header">
+        <h2 class="card__title">Example</h2>
+    </div>
+    <div class="card__body--center">
+        <a class="card__link" target="_blank" href="https://www.mailchimp.com">mailchimp.com</a>
+    </div>
+</div>
+<!-- Cursor Changes Interaction Section -->
+    <div class="card">
+        <div class="card__header">
+            <h2 class="card__title">Cursor Changes</h2>
+        </div>
+        <div class="card__body">
+            <h3>Triggers</h3>
+            <p>Cursor changes are triggered when the user hovers over the interactive area or presses down on the button.</p>
+
+            <h3>Rules</h3>
+            <ul class="card__list">
+                <li class="card__list-item">The cursor changes to a custom dot with an outline when hovered over the button.</li>
+                <li class="card__list-item">The cursor outline expands on hover and contracts on press.</li>
+            </ul>
+
+            <h3>Feedback</h3>
+            <ul class="card__list">
+                <li class="card__list-item"><strong>Visual:</strong> The cursor dot becomes slightly larger on hover and contracts to indicate pressing.</li>
+                <li class="card__list-item"><strong>Animation:</strong> Transitions are smooth with a 0.15s ease effect to enhance user experience.</li>
+            </ul>
+
+            <h3>Loops &amp; Modes</h3>
+            <p>No additional loops or modes are defined for cursor changes. The interaction resets after each hover or press event.</p>
+        </div>
+    </div>
+
+    <!-- Button Interactions Section -->
+    <div class="card">
+        <div class="card__header">
+            <h2 class="card__title">Button Interactions</h2>
+        </div>
+        <div class="card__body">
+            <h3>Triggers</h3>
+            <p>The button interaction is triggered on hover and mouse down events.</p>
+
+            <h3>Rules</h3>
+            <ul class="card__list">
+                <li class="card__list-item">The button edge slightly lifts on hover to indicate interactivity.</li>
+                <li class="card__list-item">On mouse down, the button depresses halfway to show it is being pressed.</li>
+                <li class="card__list-item">The button returns to its original position on mouse up.</li>
+            </ul>
+
+            <h3>Feedback</h3>
+            <ul class="card__list">
+                <li class="card__list-item"><strong>Visual:</strong> The button color changes to a bright yellow (#ffe01b) on hover and a deeper yellow (#ffc300) on press.</li>
+                <li class="card__list-item"><strong>Haptic:</strong> A slight vibration may occur on press if the device supports haptic feedback.</li>
+                <li class="card__list-item"><strong>Screen Transition:</strong> On mouse up, the interaction completes, and the user is navigated to a new screen. A div element temporarily slides in from the right side as a transitional effect.</li>
+            </ul>
+
+            <h3>Loops &amp; Modes</h3>
+            <p>The temporary div animation slides in from the right when the new screen loads, providing additional visual feedback. This div remains visible momentarily before sliding back out, marking the completion of the transition.</p>
+        </div>
+    </div>
+
+    <!-- Slider Transition Section -->
+    <div class="card">
+        <div class="card__header">
+            <h2 class="card__title">Slider Transition</h2>
+        </div>
+        <div class="card__body">
+            <h3>Triggers</h3>
+            <p>The slider transition is triggered when the button is clicked, initiating a slide-in animation to simulate a transition to a new page.</p>
+
+            <h3>Rules</h3>
+            <ul class="card__list">
+                <li class="card__list-item">The slider element slides in from the right side of the screen.</li>
+                <li class="card__list-item">The slider remains visible momentarily, giving the effect of a page transition.</li>
+            </ul>
+
+            <h3>Feedback</h3>
+            <ul class="card__list">
+                <li class="card__list-item"><strong>Visual:</strong> The slider moves smoothly with a 0.5s ease effect, creating a visually appealing transition.</li>
+                <li class="card__list-item"><strong>Screen Transition:</strong> The slider occupies the screen momentarily before sliding out, simulating a transition to the next page.</li>
+            </ul>
+
+            <h3>Loops &amp; Modes</h3>
+            <p>The slider transition is a one-time effect per button click, resetting once the slider exits the screen. This allows the transition to be repeated on subsequent clicks.</p>
+        </div>
+    </div>
+
+    <!-- Error Message Animations Section -->
+    <div class="card">
+        <div class="card__header">
+            <h2 class="card__title">Error Message Animations</h2>
+        </div>
+        <div class="card__body">
+            <h3>Triggers</h3>
+            <p>The error message animation is triggered when a user submits a form with invalid or incomplete data.</p>
+
+            <h3>Rules</h3>
+            <ul class="card__list">
+                <li class="card__list-item">The error message appears below the relevant form field.</li>
+                <li class="card__list-item">The message includes a brief explanation of the error.</li>
+                <li class="card__list-item">The form field border changes color to red (#ff4d4d) to indicate an error.</li>
+            </ul>
+
+            <h3>Feedback</h3>
+            <ul class="card__list">
+                <li class="card__list-item"><strong>Visual:</strong> The error message fades in with a slight slide-up animation over 0.3s.</li>
+                <li class="card__list-item"><strong>Animation:</strong> The form field shakes slightly to draw attention.</li>
+                <li class="card__list-item"><strong>Auditory:</strong> An optional error sound plays if sound is enabled.</li>
+            </ul>
+
+            <h3>Loops &amp; Modes</h3>
+            <p>The error message remains visible until the user corrects the input. The shake animation occurs only once per error instance to avoid overwhelming the user.</p>
+        </div>
+    </div>
+
+    <!-- Notification Pop-ups Section -->
+    <div class="card">
+        <div class="card__header">
+            <h2 class="card__title">Notification Pop-ups</h2>
+        </div>
+        <div class="card__body">
+            <h3>Triggers</h3>
+            <p>The notification pop-up is triggered when a significant event occurs, such as receiving a new message or completing a task.</p>
+
+            <h3>Rules</h3>
+            <ul class="card__list">
+                <li class="card__list-item">The pop-up appears at the bottom-right corner of the screen.</li>
+                <li class="card__list-item">It displays a concise message and an icon representing the notification type.</li>
+                <li class="card__list-item">The pop-up auto-dismisses after 5 seconds unless interacted with.</li>
+            </ul>
+
+            <h3>Feedback</h3>
+            <ul class="card__list">
+                <li class="card__list-item"><strong>Visual:</strong> The pop-up slides in from the bottom with a smooth transition of 0.4s.</li>
+                <li class="card__list-item"><strong>Animation:</strong> Hovering over the pop-up pauses auto-dismissal and highlights the background.</li>
+                <li class="card__list-item"><strong>Auditory:</strong> A soft chime plays when the pop-up appears if sound is enabled.</li>
+            </ul>
+
+            <h3>Loops &amp; Modes</h3>
+            <p>The notification operates in passive mode, appearing only when triggered by an event. It does not loop or repeat unless a new event occurs. Users can manually dismiss it by clicking a close icon.</p>
+        </div>
+    </div>
+
+    <!-- Error Message Element -->
+    <div class="error-message" id="error-message">
+        <p>Please enter a valid email address.</p>
+    </div>
+
+    <!-- Notification Pop-up Element -->
+    <div class="notification-popup" id="notification-popup">
+        <span class="notification-icon">&#128276;</span>
+        <p class="notification-text">You have a new notification.</p>
+        <span class="notification-close">&times;</span>
+    </div>
+
+
+
+<!-- Custom Cursor Elements -->
+<div class="cursor-dot"></div>
+<div class="cursor-outline"></div>
+<div class="slider" id="slider">New Page</div>
+</body>
+</html>
