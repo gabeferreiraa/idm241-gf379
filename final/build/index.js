@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const toast = document.getElementById('toastNotification');
 
-  // Function to show toast
+  // show toast
   function showToast(message, duration = 3000) {
     toast.textContent = message; // Set the message
     toast.classList.add('show'); // Add 'show' class to make it visible
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Example usage
+  // usage
   showToast('Form submitted successfully!', 3000);
 
   // custom cursor elements
