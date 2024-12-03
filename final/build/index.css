@@ -315,3 +315,36 @@ body {
   opacity: 0; /* Fade out */
   transform: translateY(100px); /* Slide out smoothly */
 }
+
+/* Responsive Design */
+@media only screen and (max-width: 600px) {
+  .card {
+    width: 95%; /* Narrower cards on smaller screens */
+  }
+
+  .form-input {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+
+  .button {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .card__title {
+    font-size: 1rem; /* Adjust title size for small screens */
+  }
+
+  .form-input {
+    font-size: 12px;
+    padding: 6px 8px; /* Compact input fields */
+  }
+
+  .button {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+}
