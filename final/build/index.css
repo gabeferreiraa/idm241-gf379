@@ -175,24 +175,77 @@ body {
 .cursor-outline.active {
   transform: translate(-50%, -50%) scale(0.7);
 }
-
 .slider {
   position: fixed;
   top: 0;
-  right: -100%; /* Start off-screen to the right */
+  left: 0; /* Ensure it starts from the left */
   width: 100%;
   height: 100vh;
   background: #f6f6f4;
-  transform: translateX(100%);
-  transition: transform 2s ease-out;
-  z-index: 1000;
-  font-size: 10rem;
+  transform: translateX(100%); /* Start off-screen to the right */
+  transition: transform 2s ease-out; /* Adjusted duration for smoother transition */
+  z-index: 1000; /* Ensure it's above other elements */
+  font-size: 2rem; /* Reduced font size for better readability */
+  padding: 20px; /* Added padding for spacing */
+  box-sizing: border-box; /* Prevent padding from affecting total size */
+  display: none; /* Hidden by default */
 }
 
+/* Slider visible state */
 .slider.slide {
-  transform: translateX(-100%);
+  transform: translateX(0); /* Slide into view */
+  display: block; /* Make it visible when sliding in */
 }
 
+/* Close Button Styles */
+.close-slider {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #333333;
+  transition: color 2s ease;
+}
+
+.close-slider:hover {
+  color: #ff4d4d; /* Change color on hover */
+}
+
+/* Slider Content Styles */
+.slider-content {
+  margin-top: 60px; /* Space below the close button */
+  text-align: center;
+}
+
+/* Optional: Adjust font sizes for smaller screens */
+@media only screen and (max-width: 600px) {
+  .slider {
+    font-size: 1.5rem;
+    padding: 15px;
+  }
+
+  .close-slider {
+    font-size: 1.5rem;
+    top: 15px;
+    right: 15px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .slider {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .close-slider {
+    font-size: 1.2rem;
+    top: 10px;
+    right: 10px;
+  }
+}
 .notification-popup {
   position: fixed;
   bottom: 20px;

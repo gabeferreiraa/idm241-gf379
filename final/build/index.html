@@ -12,8 +12,9 @@
 <body>
         <div class="card">
         <div class="card__header">
-            <h2 class="card__title">Final Description Build</h2>
+            <h2 class="card__title">Final Build</h2>
         </div>
+        <a class="card__link" target="_blank" href="https://www.mailchimp.com">mailchimp.com</a>
     </div> 
     <div class="card">
     <div class="card__header">
@@ -56,7 +57,6 @@
         <p id="feedbackMessage"></p>
     </div>
 
-    <!-- Cursor Changes Interaction Section -->
     <div class="card">
         <div class="card__header">
             <h2 class="card__title">Cursor Changes</h2>
@@ -111,30 +111,31 @@
     </div>
 
     <!-- Slider Transition Section -->
-    <div class="card">
-        <div class="card__header">
-            <h2 class="card__title">Slider Transition</h2>
-        </div>
-        <div class="card__body">
-            <h3>Triggers</h3>
-            <p>The slider transition is triggered when the button is clicked, initiating a slide-in animation to simulate a transition to a new page.</p>
-
-            <h3>Rules</h3>
-            <ul class="card__list">
-                <li class="card__list-item">The slider element slides in from the right side of the screen.</li>
-                <li class="card__list-item">The slider remains visible momentarily, giving the effect of a page transition.</li>
-            </ul>
-
-            <h3>Feedback</h3>
-            <ul class="card__list">
-                <li class="card__list-item"><strong>Visual:</strong> The slider moves smoothly with a 0.5s ease effect, creating a visually appealing transition.</li>
-                <li class="card__list-item"><strong>Screen Transition:</strong> The slider occupies the screen momentarily before sliding out, simulating a transition to the next page.</li>
-            </ul>
-
-            <h3>Loops &amp; Modes</h3>
-            <p>The slider transition is a one-time effect per button click, resetting once the slider exits the screen. This allows the transition to be repeated on subsequent clicks.</p>
-        </div>
+<div class="card">
+    <div class="card__header">
+        <h2 class="card__title">Slider Transition</h2>
     </div>
+    <div class="card__body">
+        <h3>Triggers</h3>
+        <p>The slider transition is triggered when the form is successfully submitted, initiating a slide-in animation that overlays the entire page.</p>
+
+        <h3>Rules</h3>
+        <ul class="card__list">
+            <li class="card__list-item">The slider element slides in smoothly from the right side of the screen upon form submission.</li>
+            <li class="card__list-item">A close button (×) is positioned in the top-right corner of the slider, allowing users to manually dismiss the overlay.</li>
+            <li class="card__list-item">The slider remains visible until the user decides to close it using the close button.</li>
+        </ul>
+
+        <h3>Feedback</h3>
+        <ul class="card__list">
+            <li class="card__list-item"><strong>Visual:</strong> The slider moves seamlessly with a 2s ease-out effect, providing a smooth transition.</li>
+            <li class="card__list-item"><strong>Interactive:</strong> The close button changes color on hover to indicate interactivity and can be clicked to slide the overlay out.</li>
+        </ul>
+
+        <h3>Loops &amp; Modes</h3>
+        <p>The slider transition is a one-time effect per successful form submission, resetting once the slider is closed. This allows the transition to be repeated on subsequent valid submissions.</p>
+    </div>
+</div>
 
     <!-- Error Message Animations Section -->
     <div class="card">
@@ -156,11 +157,10 @@
             <ul class="card__list">
                 <li class="card__list-item"><strong>Visual:</strong> The error message fades in with a slight slide-up animation over 0.3s.</li>
                 <li class="card__list-item"><strong>Animation:</strong> The form field shakes slightly to draw attention.</li>
-                <li class="card__list-item"><strong>Auditory:</strong> An optional error sound plays if sound is enabled.</li>
             </ul>
 
             <h3>Loops &amp; Modes</h3>
-            <p>The error message remains visible until the user corrects the input. The shake animation occurs only once per error instance to avoid overwhelming the user.</p>
+            <p>The error message remains visible until the user corrects the input. The shake animation occurs on every wrong submission to signal the user.</p>
         </div>
     </div>
 
@@ -191,6 +191,33 @@
             <p>The notification operates in passive mode, appearing only when triggered by an event. It does not loop or repeat unless a new event occurs. Users can manually dismiss it by clicking a close icon.</p>
         </div>
     </div>
+    <!-- Close Button Interactions Section -->
+<div class="card">
+    <div class="card__header">
+        <h2 class="card__title">Close Button Interactions</h2>
+    </div>
+    <div class="card__body">
+        <h3>Triggers</h3>
+        <p>The close button is triggered when the user clicks on it while the slider overlay is active.</p>
+
+        <h3>Rules</h3>
+        <ul class="card__list">
+            <li class="card__list-item">The close button (×) is prominently placed in the top-right corner of the slider overlay.</li>
+            <li class="card__list-item">On hover, the close button changes color to provide visual feedback indicating it is interactive.</li>
+            <li class="card__list-item">Clicking the close button initiates a slide-out animation, dismissing the slider overlay.</li>
+        </ul>
+
+        <h3>Feedback</h3>
+        <ul class="card__list">
+            <li class="card__list-item"><strong>Visual:</strong> The close button changes color (e.g., from dark gray to red) on hover to signify interactivity.</li>
+            <li class="card__list-item"><strong>Animation:</strong> Upon clicking, the slider smoothly slides out to the right with a 0.5s ease-out transition, providing a seamless dismissal.</li>
+            <li class="card__list-item"><strong>Accessibility:</strong> The close button is accessible via keyboard navigation and is labeled with `aria-label` for screen readers.</li>
+        </ul>
+
+        <h3>Loops &amp; Modes</h3>
+        <p>The close button does not loop or repeat actions. Each click initiates a single slide-out transition, resetting the slider to its initial hidden state.</p>
+    </div>
+</div>
 
     <!-- Error Message Element -->
     <div class="error-message" id="error-message">
@@ -208,7 +235,13 @@
 
 <!-- Custom Cursor Elements -->
 <div class="cursor-dot"></div>
-<div class="cursor-outline"></div>
-<div class="slider" id="slider">New Page</div>
+<div class="cursor-outline"></div><!-- Slider Transition Section -->
+<div class="slider" id="slider">
+        <button class="close-slider" aria-label="Close Slider">&times;</button>
+        <div class="slider-content">
+            <h1>Welcome to the New Page</h1>
+            <p>This is the content of the new page.</p>
+        </div>
+    </div>
 </body>
 </html>
