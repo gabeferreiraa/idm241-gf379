@@ -64,7 +64,6 @@ body {
   font-weight: 600;
   font-size: 1.2rem;
   color: #333333;
-  /* background-color: #FFE01B; Highlight title with yellow */
   padding: 4px;
   border-radius: 4px;
 }
@@ -72,6 +71,7 @@ body {
 .card__body {
   margin-bottom: 16px;
 }
+
 .card__body--center {
   padding-bottom: 25px;
   display: flex;
@@ -119,6 +119,78 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+/* Form Styling */
+.form {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.form-input {
+  padding: 10px 12px;
+  border: 2px solid #ffe01b;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+  border-color: #007c89; /* Mailchimp blue */
+}
+
+.form-input.error {
+  border-color: #ff4d4d;
+  animation: shake 0.3s ease-in-out;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+}
+
+#formFeedback {
+  margin-top: 16px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+}
+
+#formFeedback.success {
+  background-color: #28a745; /* Green for success */
+}
+
+#formFeedback.error {
+  background-color: #ff4d4d; /* Red for error */
+}
+
 .button {
   background-color: #ffd700; /* Mailchimp yellow */
   color: #000; /* Black text */
@@ -136,9 +208,6 @@ body {
 
 .button:hover {
   transform: translateY(-4px); /* Moves the button up */
-  border-top: 1px solid #000; /* Keeps the top border consistent */
-  border-right: 1px solid #000; /* Keeps the right border consistent */
-  border-left: 1px solid #000; /* Keeps the left border consistent */
   border-bottom: 6px solid #000; /* Increases the bottom border */
 }
 
@@ -148,7 +217,7 @@ body {
   background-color: #ffc300; /* Slightly darker yellow */
 }
 
-/* Small devices (up to 400px) */
+/* Responsive adjustments for the card and text */
 @media only screen and (max-width: 400px) {
   .card {
     width: 100%;
@@ -168,9 +237,18 @@ body {
   .sub-list-item {
     font-size: 0.75rem;
   }
+
+  .form-input {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+
+  .button {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
 }
 
-/* Phone (400px to 600px) */
 @media only screen and (min-width: 400px) and (max-width: 600px) {
   .card {
     width: 100%;
@@ -189,9 +267,18 @@ body {
   .sub-list-item {
     font-size: 0.8rem;
   }
+
+  .form-input {
+    font-size: 15px;
+    padding: 9px 11px;
+  }
+
+  .button {
+    padding: 11px 20px;
+    font-size: 15px;
+  }
 }
 
-/* Tablet (600px to 900px) */
 @media only screen and (min-width: 600px) and (max-width: 900px) {
   .card {
     width: 80%;
@@ -210,7 +297,9 @@ body {
   .sub-list-item {
     font-size: 0.85rem;
   }
-} /* Custom cursor dot and circle */
+}
+
+/* Custom cursor */
 .cursor-dot,
 .cursor-outline {
   position: fixed;
@@ -239,20 +328,19 @@ body {
   transform: translate(-50%, -50%);
 }
 
-/* Hover state */
 .cursor-dot.hover,
 .cursor-outline.hover {
   border-color: #000;
   transform: translate(-50%, -50%) scale(1.5);
 }
 
-/* Active state */
 .cursor-dot.active,
 .cursor-outline.active {
   transform: translate(-50%, -50%) scale(0.7);
   color: #000;
   border-color: #000;
 }
+
 /* Slider initial state */
 .slider {
   position: fixed;
@@ -261,16 +349,17 @@ body {
   width: 100%;
   height: 100vh;
   background: #f6f6f4;
-  transform: translateX(100%); /* Move off-screen to the right */
+  transform: translateX(100%);
   transition: transform 2s ease-out;
-  z-index: 1000; /* Ensure it appears above other content */
+  z-index: 1000;
   font-size: 10rem;
 }
 
 /* Slider active state */
 .slider.slide {
-  transform: translateX(-100%); /* Move off-screen to the left */
+  transform: translateX(-100%);
 }
+
 .interaction-section {
   margin-bottom: 40px;
 }
@@ -303,9 +392,10 @@ body {
   margin: 0;
   padding-left: 20px;
 }
+
 /* Error Message Styles */
 .error-message {
-  display: none; /* Hidden by default */
+  display: none;
   color: #ff4d4d;
   margin-top: 5px;
   animation: fadeInSlideUp 0.3s forwards;
