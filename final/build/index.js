@@ -94,6 +94,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!inputElement || !errorMessageElement) return;
 
     errorMessageElement.textContent = message;
+    errorMessageElement.style.display = 'block'; // Show the error message
     // Reset animation
     inputElement.classList.remove('error');
     void inputElement.offsetWidth; // force reflow
@@ -120,7 +121,10 @@ document.addEventListener('DOMContentLoaded', function () {
         );
         hasError = true;
       } else {
-        if (firstNameError) firstNameError.textContent = '';
+        if (firstNameError) {
+          firstNameError.textContent = '';
+          firstNameError.style.display = 'none'; // Hide the error message
+        }
         if (firstName) firstName.classList.remove('error');
       }
 
@@ -138,7 +142,10 @@ document.addEventListener('DOMContentLoaded', function () {
         );
         hasError = true;
       } else {
-        if (lastNameError) lastNameError.textContent = '';
+        if (lastNameError) {
+          lastNameError.textContent = '';
+          lastNameError.style.display = 'none'; // Hide the error message
+        }
         if (lastName) lastName.classList.remove('error');
       }
 
