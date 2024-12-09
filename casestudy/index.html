@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>   
+    <link rel="stylesheet" href="/normalize.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="./index.css"/>
+    <script src="./index.js" defer></script>
+    <title>Case Study - Micro Interactions</title>
+</head>
+<body>
+    <header class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Micro Interactions Case Study</h1>
+            <p class="hero-subtitle">Enhancing User Experience through Subtle Animated Feedback</p>
+            <!-- Replace the below image src with your final hero image -->
+            <img class="hero-image" src="images/hero-image-placeholder.jpg" alt="Hero Image of the Final Project"/>
+        </div>
+    </header>
+
+    <div class="card">
+        <div class="card__header">
+            <h2 class="card__title">The Overview</h2>
+        </div>
+        <div class="card__body">
+            <p>This project focused on designing and implementing micro interactions to enhance a web form experience. Users previously encountered confusion when submitting forms and receiving feedback. By strategically adding cursor changes, button animations, slider transitions, error message prompts, and notification pop-ups, the final solution dramatically improved user confidence and clarity. The result was a smoother, more intuitive workflow that guided users through tasks seamlessly and reduced input errors.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card__header">
+            <h2 class="card__title">Context & Challenge</h2>
+        </div>
+        <div class="card__body">
+            <h3>Background</h3>
+            <p>Our client, a marketing platform provider, needed a more engaging signup and contact form. Users were often unsure if their actions had been registered, leading to abandoned forms and poor user satisfaction.</p>
+
+            <h3>The Problem</h3>
+            <p>Without clear visual feedback, users were uncertain about the status of their inputs. Errors went unnoticed, and submission confirmations were not immediately evident, resulting in confusion and frustration.</p>
+
+            <h3>Goals & Objectives</h3>
+            <ul>
+                <li>Increase form completion rates by providing immediate, clear feedback.</li>
+                <li>Minimize user frustration by highlighting errors and guiding corrections.</li>
+                <li>Reinforce brand personality through subtle, friendly animations.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card__header">
+            <h2 class="card__title">Process & Insight</h2>
+        </div>
+        <div class="card__body">
+            <h3>Research & Discovery</h3>
+            <p>We identified target users—marketing professionals—who needed a quick, effortless way to submit their information. User journeys revealed friction at the submission stage where minimal feedback caused uncertainty.</p>
+
+            <h3>Ideation & Sketches</h3>
+            <p>Initial wireframes and sketches explored where and how to introduce micro interactions: a custom cursor to signal interactivity, animated buttons that respond to hover and press, error message animations to ensure users see issues, and a slide-in confirmation overlay after successful submission.</p>
+
+            <h3>Prototyping & Testing</h3>
+            <p>We developed low-fidelity prototypes with basic animations to test timing, placement, and clarity. User feedback prompted refinements, such as adjusting the error message timing and ensuring the slider overlay was easily dismissible.</p>
+
+            <h3>Design Language</h3>
+            <p>The design maintained a consistent visual style: Inter typeface, a neutral color palette with strategic use of vibrant yellows for interaction states, and smooth easing transitions to ensure animations felt natural rather than distracting.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card__header">
+            <h2 class="card__title">The Solution</h2>
+        </div>
+        <div class="card__body">
+            <h3>Key Micro Interactions</h3>
+            <ul>
+                <li><strong>Cursor Changes:</strong> A custom cursor dot and outline signal interactive elements and provide instant visual feedback on hover and click.</li>
+                <li><strong>Button Animations:</strong> Buttons lift on hover and depress on press, reassuring users their actions are recognized.</li>
+                <li><strong>Slider Transition:</strong> A smooth slide-in overlay confirms successful form submission and presents next-step options, reducing uncertainty.</li>
+                <li><strong>Error Messages:</strong> Subtle shaking and color changes highlight input fields needing correction, ensuring users quickly spot and fix errors.</li>
+                <li><strong>Notification Pop-ups:</strong> Brief, unobtrusive notifications inform users of new events or completed actions without overwhelming them.</li>
+            </ul>
+
+            <h3>Visual & Interaction Details</h3>
+            <p>Each micro interaction adhered to accessibility best practices, from using ARIA attributes for screen readers to ensuring keyboard navigation was supported. Transitions were carefully timed for smoothness, using easing functions that felt natural. Colors were chosen for strong contrast and brand alignment, ensuring users always had a clear visual hierarchy to follow.</p>
+
+            <!-- Replace below images with actual screenshots or GIFs of interactions -->
+            <div class="image-gallery">
+                <img src="images/cursor-hover.jpg" alt="Cursor hover state example"/>
+                <img src="images/button-press.jpg" alt="Button press animation example"/>
+                <img src="images/slider-transition.jpg" alt="Slider overlay transition example"/>
+                <img src="images/error-message-animation.jpg" alt="Error message animation example"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card__header">
+            <h2 class="card__title">Results & Reflections</h2>
+        </div>
+        <div class="card__body">
+            <h3>Success Metrics</h3>
+            <p>The new design reduced user confusion and improved form completion rates. Users reported feeling more confident and clear about each step of the submission process. Time-on-page did not increase unnecessarily, and error correction became more efficient due to prominent, timely feedback.</p>
+
+            <h3>Lessons Learned</h3>
+            <p>Integrating user feedback early helped prioritize which interactions mattered most. Future iterations could further refine accessibility features, introduce subtle haptic feedback on supported devices, and expand the notification system for more dynamic updates.</p>
+
+            <h3>Client Feedback</h3>
+            <blockquote>
+                "The enhancements made a huge difference in how users engage with our form. The micro interactions feel delightful, and the improved guidance has significantly cut down on submission errors."
+                <cite>– Client Representative</cite>
+            </blockquote>
+        </div>
+    </div>
+    <div class="cursor-dot"></div>
+<div class="cursor-outline"></div><!-- Slider Transition Section -->
+
+    <footer class="footer">
+        <p>&copy; 2024 Your Name or Company. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
