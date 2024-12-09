@@ -1,126 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>   
-    <link rel="stylesheet" href="/normalize.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="./index.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mailchimp Case Study</title>
+    <link rel="stylesheet" href="index.css">
     <script src="./index.js" defer></script>
-    <title>Case Study - Micro Interactions</title>
 </head>
 <body>
-    <header class="hero-section">
-        <div class="hero-content">
-            <h1 class="hero-title">Micro Interactions Case Study</h1>
-            <p class="hero-subtitle">Enhancing User Experience through Subtle Animated Feedback</p>
-            <!-- Replace the below image src with your final hero image -->
-            <img class="hero-image" src="images/hero-image-placeholder.jpg" alt="Hero Image of the Final Project"/>
-        </div>
+    <!-- Header Section -->
+    <header class="header">
+        <h1>Mailchimp Case Study</h1>
     </header>
 
-    <div class="card">
-        <div class="card__header">
-            <h2 class="card__title">The Overview</h2>
+    <!-- Screenshots Section -->
+    <section class="screenshots">
+        <div class="screenshot">
+            <img src="Micro-Interactions.jpeg" alt="Alpha Build Screenshot">
         </div>
-        <div class="card__body">
-            <p>This project focused on designing and implementing micro interactions that bring clarity and delight to a web form experience. Drawing inspiration from industry-leading practices (such as Apple’s approach to minimal, intuitive interactions) and grounding animations in recognized principles like the 12 principles of animation, the final solution enhanced user engagement and confidence.</p>
-            <p>We introduced custom cursors, animated buttons, a slide-in confirmation overlay, and responsive error messaging. These micro interactions not only supported usability goals—reducing form errors and confusion—but also reinforced the brand’s approachable personality. Ultimately, the project achieved smoother user flows and earned positive feedback, making it an effective demonstration of thoughtful interaction design.</p>
+        <div class="screenshot">
+            <img src="Micro-Interactions-Beta-Build.jpeg" alt="Beta Build Screenshot">
         </div>
-    </div>
-
-    <div class="card">
-        <div class="card__header">
-            <h2 class="card__title">Context & Challenge</h2>
+        <div class="screenshot">
+            <img src="Micro-Interactions-Final-Build.jpeg" alt="Final Build Screenshot">
         </div>
-        <div class="card__body">
-            <h3>Background</h3>
-            <p>This solo project was completed over a structured timeline to improve the clarity and usability of a marketing platform’s signup form. Prior iterations lacked immediate feedback, causing users to abandon the process.</p>
+    </section>
 
-            <h3>The Problem</h3>
-            <p>Without clear visual and interactive cues, users were often unsure if their input had been registered. Errors went unnoticed, and no immediate confirmation followed successful submissions, resulting in confusion and frustration.</p>
-
-            <h3>Goals & Objectives</h3>
-            <ul>
-                <li>Increase form completion rates by providing immediate, intuitive feedback using subtle animations.</li>
-                <li>Apply interaction design principles to ensure that micro interactions feel natural and grounded in established design heuristics.</li>
-                <li>Incorporate cues inspired by proven examples—from leading brands to peer portfolios—to stand out to potential employers and collaborators.</li>
-            </ul>
+    <!-- Project Phases -->
+    <section class="phases">
+        <div class="phase">
+            <h2>Alpha Build</h2>
+            <p>Established the foundational layout and implemented basic interactions without advanced feedback. Focused on replicating Mailchimp’s core functionality in a simple, static form.</p>
         </div>
-    </div>
-
-    <div class="card">
-        <div class="card__header">
-            <h2 class="card__title">Process & Insight</h2>
+        <div class="phase">
+            <h2>Beta Build</h2>
+            <p>Introduced initial microinteractions, such as cursor changes on hover and basic button animations. Began refining how visual and tactile feedback guided users through tasks.</p>
         </div>
-        <div class="card__body">
-            <h3>Research & Discovery</h3>
-            <p>We began by studying target users—marketing professionals looking for a quick, confident way to submit their information. We examined best-in-class interactions from leading brands, such as Apple’s elegantly minimal hover states, to inspire a clear, uncluttered design language. Reviewing peer portfolios and industry examples helped pinpoint where subtle animations could improve user experience without overwhelming the interface.</p>
-
-            <h3>Ideation & Sketches</h3>
-            <p>Initial wireframes placed form fields, call-to-action buttons, and notification areas in a straightforward layout. We refined these sketches iteratively, focusing on how micro interactions would guide the user. Applying the 12 principles of animation—like easing and follow-through—ensured movements felt natural. Incorporating a familiar visual hierarchy ensured that cursor changes, hover effects, and error messages drew immediate attention without feeling jarring.</p>
-
-            <h3>Prototyping & Testing</h3>
-            <p>We built low-fidelity prototypes and tested them informally with peers. Early tests revealed a challenge similar to one encountered by other designers: a tooltip near a key interface element was initially clipped by a container. To resolve this, we adjusted the tooltip’s position to display below the element, ensuring it remained fully visible. This iterative process and problem-solving echoed the advice from classmates’ case studies, underscoring the value of refinement and responsiveness to feedback.</p>
-
-            <h3>Design Language</h3>
-            <p>We maintained a consistent style—using the Inter typeface, a balanced color palette for clarity, and smooth easing transitions. We ensured accessible typography and proper contrast ratios. Each interaction was tested not only for visual consistency but also for performance, ensuring that animations loaded quickly and did not hinder the user’s overall experience.</p>
+        <div class="phase">
+            <h2>Final Build</h2>
+            <p>Integrated a full set of microinteractions—error message animations, slider transitions, and notification pop-ups—culminating in a polished, responsive user experience.</p>
         </div>
-    </div>
+    </section>
 
-    <div class="card">
-        <div class="card__header">
-            <h2 class="card__title">The Solution</h2>
-        </div>
-        <div class="card__body">
-            <h3>Key Micro Interactions</h3>
-            <ul>
-                <li><strong>Cursor Changes:</strong> A custom cursor dot and outline communicate interactiveness, offering a subtle cue that responds to hover and click events.</li>
-                <li><strong>Button Animations:</strong> Buttons lift on hover and depress on click, applying timing and easing principles. A slight delay before navigation provides feedback, reassuring users that their action was registered.</li>
-                <li><strong>Slider Transition:</strong> A slide-in overlay confirms successful form submission, inspired by minimal card transitions from recognized brands, giving users a clear next step without abrupt changes.</li>
-                <li><strong>Error Messages:</strong> Fields shake gently and turn red if invalid. This visible, animated cue ensures users cannot miss necessary corrections.</li>
-                <li><strong>Notification Pop-ups:</strong> Appearing at the bottom-right corner, these provide timely updates without overwhelming the user, pausing on hover for accessibility.</li>
-            </ul>
+    <!-- Overview Section -->
+    <section class="overview">
+        <h2>Overview</h2>
+        <p>This project focused on enhancing the Mailchimp homepage by strategically incorporating microinteractions. Over 10 weeks, I iteratively refined user feedback mechanisms using HTML, CSS, and JavaScript. Each build introduced more nuanced interactions, ensuring that users received immediate, helpful visual and tactile responses. The final implementation maintained Mailchimp’s brand identity while making the interface more intuitive and engaging.</p>
+    </section>
 
-            <h3>Visual & Interaction Details</h3>
-            <p>We tied each interaction back to user goals—reducing error rates, improving clarity, and ensuring delight. Drawing from principles championed in other portfolios, including timed hover states and subtle scaling effects, we guaranteed consistency and brand personality. Every decision, from hover timing to tooltip placement, aimed to create a cohesive, intuitive experience.</p>
+    <!-- Context and Challenge Section -->
+    <section class="context-challenge">
+        <h2>Context and Challenge</h2>
+        <p>Mailchimp’s homepage, while robust, often left users uncertain about their actions due to limited interactive feedback. Essential features like form submissions and button states felt static, making the user journey less clear. The goal was to integrate microinteractions to guide users at each step—hovering over a button, submitting a form, or encountering an error—so they felt confident in their actions. This challenge involved not just adding animations, but ensuring these interactions communicated meaningful information without overwhelming the user.</p>
+    </section>
 
-            <!-- Replace below images with actual screenshots or GIFs of interactions -->
-            <div class="image-gallery">
-                <img src="images/cursor-hover.jpg" alt="Cursor hover state example"/>
-                <img src="images/button-press.jpg" alt="Button press animation example"/>
-                <img src="images/slider-transition.jpg" alt="Slider overlay transition example"/>
-                <img src="images/error-message-animation.jpg" alt="Error message animation example"/>
-            </div>
-        </div>
-    </div>
+    <!-- Process and Insight Section -->
+    <section class="process-insight">
+        <h2>Process and Insight</h2>
+        <p>The process began with analyzing Mailchimp’s existing workflows and identifying moments where microinteractions could reduce friction. Early sketches and wireframes clarified where cursor changes, button states, and notification triggers would be most effective. User feedback and competitor analysis underscored the need for immediate, visually distinct responses, leading to iterations that refined timing, color transitions, and element hierarchy.</p>
+        <p>As the builds progressed, insights emerged about balancing subtlety and clarity. Overly complex animations risked confusing users, while too simplistic effects lacked sufficient guidance. Striking the right balance—such as a gentle button lift on hover or a smooth slider transition on form submission—helped users navigate the interface with greater ease.</p>
+    </section>
 
-    <div class="card">
-        <div class="card__header">
-            <h2 class="card__title">Results & Reflections</h2>
-        </div>
-        <div class="card__body">
-            <h3>Success Metrics</h3>
-            <p>Post-launch feedback indicated fewer abandoned forms and a smoother user flow. Peers commended the balanced use of animations, calling it both professional and engaging. By applying known animation principles and referencing successful industry examples, we gave the interface a more polished and memorable personality.</p>
+    <!-- Testing Section -->
+    <section class="testing">
+        <h2>Testing</h2>
+        <p>Testing each build involved user observations, A/B comparisons, and performance checks. For example:</p>
+        <ul>
+            <li><strong>Usability Testing:</strong> Users interacted with the new microinteractions (hover states, error animations), revealing where feedback timing needed adjustment.</li>
+            <li><strong>Performance Testing:</strong> Ensuring that adding animations and transitions did not slow down page load or responsiveness on various devices.</li>
+            <li><strong>A/B Testing:</strong> Comparing versions with and without microinteractions showed measurable increases in user engagement and clarity.</li>
+        </ul>
+        <p>These tests guided refinements. Adjusting animation durations, tweaking hover state colors, and smoothing slider transitions ensured each microinteraction contributed positively to the overall user experience.</p>
+    </section>
 
-            <h3>Lessons Learned</h3>
-            <p>As the process was iterative, we learned the importance of testing early and often. Adjusting tooltip positions, refining error states, and continuously revising timings showed how small changes can significantly improve user experience. Like others in our cohort discovered, the first iteration is rarely the best, and embracing refinement is key to better outcomes.</p>
+    <!-- The Solution Section -->
+    <section class="solution">
+        <h2>The Solution</h2>
+        <p>The final build integrated a suite of microinteractions that addressed key pain points:</p>
+        <ul>
+            <li><strong>Cursor Changes:</strong> Subtle cursor transformations on hover clarified clickable areas and user focus.</li>
+            <li><strong>Button Interactions:</strong> Smooth color shifts and slight lifts signaled button interactivity, guiding users to the correct path without guesswork.</li>
+            <li><strong>Slider Transition:</strong> A slide-in overlay on successful form submission rewarded user efforts and confirmed that their action was recognized.</li>
+            <li><strong>Error Message Animations:</strong> Animated shake and fade-in effects highlighted input errors, encouraging quick, confident corrections.</li>
+            <li><strong>Notification Pop-ups:</strong> Timed, dismissible pop-ups provided concise feedback about new events or completed tasks, preventing confusion.</li>
+        </ul>
+        <p>Each microinteraction was documented with triggers, rules, feedback, loops, and modes, ensuring a predictable and delightful user experience. These enhancements maintained brand cohesion by using Mailchimp’s colors and aesthetics, reinforcing trust and familiarity.</p>
+    </section>
 
-            <h3>Future Steps</h3>
-            <p>Moving forward, we plan to explore more advanced animations and delve deeper into interaction design theory. Inspired by positive peer feedback and proven industry techniques, we’ll continue to analyze and iterate on every new interface we build. This project reinforced that well-crafted micro interactions not only guide users but also enrich their overall digital journey.</p>
+    <!-- The Results Section -->
+    <section class="results">
+        <h2>The Results</h2>
+        <p>By focusing on these targeted microinteractions rather than a full site overhaul, the improvements were both meaningful and measurable:</p>
+        <ul>
+            <li><strong>Increased User Confidence:</strong> Users reported feeling more sure of their actions, thanks to instant visual feedback and smoother transitions.</li>
+            <li><strong>Reduced Error Frequency:</strong> Clear error animations prompted quicker corrections, decreasing form abandonment rates.</li>
+            <li><strong>Enhanced Engagement:</strong> Subtle cursor and button states encouraged exploration, leading to a higher click-through rate on key features.</li>
+            <li><strong>Positive Feedback:</strong> Qualitative user comments praised the polished, intuitive feel, noting the microinteractions as a highlight of the redesign.</li>
+        </ul>
+        <p>These outcomes confirmed that small, well-implemented microinteractions can significantly elevate the user experience.</p>
+    </section>
 
-            <h3>Client & Peer Feedback</h3>
-            <blockquote>
-                "The transitions and micro interactions feel natural and assure us that our input is recognized. The changes make the process so much more fluid."
-                <cite>– Client Representative</cite>
-            </blockquote>
-        </div>
-    </div>
+    <!-- Custom Cursor Elements -->
     <div class="cursor-dot"></div>
-<div class="cursor-outline"></div><!-- Slider Transition Section -->
-
-    <footer class="footer">
-        <p>&copy; 2024 IDM241-gf379.</p>
-    </footer>
+    <div class="cursor-outline"></div>
 </body>
 </html>
