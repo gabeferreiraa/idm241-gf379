@@ -1,3 +1,4 @@
+/* Base Styles */
 body {
   font-family: 'Inter', sans-serif;
   background-color: #f6f6f4; /* Light background color from Mailchimp */
@@ -9,6 +10,7 @@ body {
   cursor: none;
 }
 
+/* Card Styles */
 .card {
   background-color: #ffffff; /* White background for cards */
   border-radius: 8px;
@@ -16,8 +18,9 @@ body {
   margin: 20px;
   width: 800px;
   padding: 16px;
-  transition: all 0.3s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out; /* Only transition box-shadow */
   border: 2px solid #ffe01b; /* Mailchimp yellow border */
+  overflow: hidden; /* Prevent content from affecting dimensions */
 }
 
 .card__link {
@@ -34,30 +37,6 @@ body {
 .card__header {
   margin-bottom: 12px;
   border-bottom: 2px solid #ffe01b; /* Yellow border under the header */
-}
-
-.card__header-video {
-  margin-bottom: 12px;
-  display: flex;
-  justify-content: center;
-}
-
-.card__video-container {
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
-  height: 0;
-  overflow: hidden;
-  border-radius: 8px;
-}
-
-.card__video-container iframe,
-.card__video-container video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
 }
 
 .card__title {
@@ -158,22 +137,6 @@ body {
   animation: shake 0.3s ease-in-out;
 }
 
-@keyframes shake {
-  0%,
-  100% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translateX(-5px);
-  }
-  50% {
-    transform: translateX(5px);
-  }
-  75% {
-    transform: translateX(-5px);
-  }
-}
-
 #formFeedback {
   margin-top: 16px;
   padding: 12px 16px;
@@ -191,6 +154,7 @@ body {
   background-color: #ff4d4d; /* Red for error */
 }
 
+/* Button Styles */
 .button {
   background-color: #ffd700; /* Mailchimp yellow */
   color: #000; /* Black text */
@@ -200,106 +164,25 @@ body {
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
+  position: relative; /* Keep button in place without affecting layout */
   transition:
     border 0.2s ease,
     transform 0.2s ease;
-  position: relative;
+  will-change: transform; /* Optimize animation performance */
 }
 
 .button:hover {
-  transform: translateY(-4px); /* Moves the button up */
+  top: -4px;
   border-bottom: 6px solid #000; /* Increases the bottom border */
 }
 
 .button:active {
-  transform: translateY(0); /* Resets to original position */
+  top: 0;
   border-bottom: 2px solid #000; /* Restores original border width */
   background-color: #ffc300; /* Slightly darker yellow */
 }
 
-/* Responsive adjustments for the card and text */
-@media only screen and (max-width: 400px) {
-  .card {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    border-width: 1px; /* Thinner border for smaller screens */
-  }
-
-  .card__title {
-    font-size: 0.9rem;
-  }
-
-  .card__list-item {
-    padding: 5px;
-  }
-
-  .sub-list-item {
-    font-size: 0.75rem;
-  }
-
-  .form-input {
-    font-size: 14px;
-    padding: 8px 10px;
-  }
-
-  .button {
-    padding: 10px 16px;
-    font-size: 14px;
-  }
-}
-
-@media only screen and (min-width: 400px) and (max-width: 600px) {
-  .card {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-  }
-
-  .card__title {
-    font-size: 1rem;
-  }
-
-  .card__list-item {
-    padding: 6px;
-  }
-
-  .sub-list-item {
-    font-size: 0.8rem;
-  }
-
-  .form-input {
-    font-size: 15px;
-    padding: 9px 11px;
-  }
-
-  .button {
-    padding: 11px 20px;
-    font-size: 15px;
-  }
-}
-
-@media only screen and (min-width: 600px) and (max-width: 900px) {
-  .card {
-    width: 80%;
-    padding: 14px;
-    margin: 15px 0;
-  }
-
-  .card__title {
-    font-size: 1.1rem;
-  }
-
-  .card__list-item {
-    padding: 7px;
-  }
-
-  .sub-list-item {
-    font-size: 0.85rem;
-  }
-}
-
-/* Custom cursor */
+/* Custom Cursor */
 .cursor-dot,
 .cursor-outline {
   position: fixed;
@@ -337,65 +220,57 @@ body {
 .cursor-dot.active,
 .cursor-outline.active {
   transform: translate(-50%, -50%) scale(0.7);
-  color: #000;
-  border-color: #000;
 }
 
-/* Slider initial state */
+/* Slider Styles */
 .slider {
   position: fixed;
   top: 0;
-  right: -100%; /* Start off-screen to the right */
+  left: 0; /* Ensure it starts from the left */
   width: 100%;
   height: 100vh;
   background: #f6f6f4;
-  transform: translateX(100%);
-  transition: transform 2s ease-out;
-  z-index: 1000;
-  font-size: 10rem;
+  transform: translateX(100%); /* Start off-screen to the right */
+  transition: transform 2s ease-out; /* Adjusted duration for smoother transition */
+  z-index: 1000; /* Ensure it's above other elements */
+  font-size: 2rem; /* Reduced font size for better readability */
+  padding: 20px; /* Added padding for spacing */
+  box-sizing: border-box; /* Prevent padding from affecting total size */
+  display: none; /* Hidden by default */
 }
 
-/* Slider active state */
+/* Slider visible state */
 .slider.slide {
-  transform: translateX(-100%);
+  transform: translateX(0); /* Slide into view */
+  display: block; /* Make it visible when sliding in */
 }
 
-.interaction-section {
-  margin-bottom: 40px;
-}
-
-.interaction-section h2 {
-  font-size: 1.8em;
-  margin-bottom: 20px;
-  font-weight: 600;
+/* Close Button Styles */
+.close-slider {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
   color: #333333;
+  transition: color 0.2s ease;
 }
 
-.interaction-card {
-  background-color: #ffffff; /* White background for cards */
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  margin: 10px 0;
-  width: 800px;
-  border: 2px solid #ffe01b; /* Mailchimp yellow border */
+.close-slider:hover {
+  color: #ff4d4d; /* Change color on hover */
 }
 
-.interaction-card h3 {
-  font-weight: 600;
-  margin-bottom: 10px;
-  color: #333333;
-}
-
-.interaction-card ul {
-  list-style-type: disc;
-  margin: 0;
-  padding-left: 20px;
+/* Slider Content Styles */
+.slider-content {
+  margin-top: 60px; /* Space below the close button */
+  text-align: center;
 }
 
 /* Error Message Styles */
 .error-message {
-  display: none;
+  display: none; /* Hidden by default */
   color: #ff4d4d;
   margin-top: 5px;
   animation: fadeInSlideUp 0.3s forwards;
@@ -410,6 +285,58 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.form-input.error {
+  border-color: #ff4d4d;
+  animation: shake 0.3s ease-in-out;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+}
+
+/* Toast Notification Styles */
+.toast {
+  position: fixed;
+  bottom: 20px; /* Final position, consistent throughout */
+  right: 20px;
+  padding: 15px 25px;
+  background-color: #ffffff; /* White background */
+  color: #28a745; /* Green text for success */
+  border: 2px solid #28a745; /* Green border */
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600; /* Bold text */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  opacity: 0; /* Initially invisible */
+  transform: translateY(100px); /* Slide from below */
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease; /* Smooth fade and slide */
+  z-index: 10000; /* Ensure it's above other elements */
+}
+
+.toast.show {
+  opacity: 1; /* Fully visible */
+  transform: translateY(0); /* Slide into view */
+}
+
+.toast.hide {
+  opacity: 0; /* Fade out */
+  transform: translateY(100px); /* Slide out smoothly */
 }
 
 /* Notification Pop-up Styles */
@@ -450,4 +377,42 @@ body {
 /* Hover Effect for Notification */
 .notification-popup:hover {
   background-color: #444;
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 600px) {
+  .card {
+    width: 95%; /* Narrower cards on smaller screens */
+  }
+
+  .form-input {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+
+  .button {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .card {
+    width: 90%;
+    padding: 12px;
+  }
+
+  .form-input {
+    font-size: 12px;
+    padding: 6px 8px; /* Compact input fields */
+  }
+
+  .button {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .card__title {
+    font-size: 1rem; /* Adjust title size for small screens */
+  }
 }
