@@ -1,154 +1,182 @@
 document.addEventListener('DOMContentLoaded', function () {
+  // Safely query elements and warn if missing
+  function safeQuery(selector) {
+    const el = document.querySelector(selector);
+    if (!el) {
+      console.error(`Element not found for selector: ${selector}`);
+    }
+    return el;
+  }
+
   // Cursor Elements
-  const cursorDot = document.querySelector('.cursor-dot');
-  const cursorOutline = document.querySelector('.cursor-outline');
-  const slider = document.getElementById('slider');
-  const closeSliderButton = document.querySelector('.close-slider'); // Select the close button
+  const cursorDot = safeQuery('.cursor-dot');
+  const cursorOutline = safeQuery('.cursor-outline');
+  const slider = safeQuery('#slider');
+  const closeSliderButton = safeQuery('.close-slider');
 
   // Toast Notification
-  const toast = document.getElementById('toastNotification');
+  const toast = safeQuery('#toastNotification');
 
-  // Show toast notification
+  // Utility function: Show toast notification
   function showToast(message, duration = 3000) {
-    toast.textContent = message; // Set the message
-    toast.classList.add('show'); // Add 'show' class to make it visible
+    if (!toast) {
+      console.warn('Toast element not found. Cannot show toast message.');
+      return;
+    }
+    toast.textContent = message;
+    toast.classList.add('show');
 
-    // Hide the toast after the duration
     setTimeout(() => {
       toast.classList.remove('show');
-      toast.classList.add('hide'); // Add 'hide' class for smooth exit
+      toast.classList.add('hide');
     }, duration);
   }
 
-  // Handle transitionend to reset the 'hide' class
-  toast.addEventListener('transitionend', () => {
-    if (toast.classList.contains('hide')) {
-      toast.classList.remove('hide');
-    }
-  });
+  if (toast) {
+    toast.addEventListener('transitionend', () => {
+      if (toast.classList.contains('hide')) {
+        toast.classList.remove('hide');
+      }
+    });
+  }
 
   // Custom Cursor Movement
-  document.addEventListener('mousemove', (e) => {
-    const { clientX: x, clientY: y } = e;
-    cursorDot.style.left = `${x}px`;
-    cursorDot.style.top = `${y}px`;
-    cursorOutline.style.left = `${x}px`;
-    cursorOutline.style.top = `${y}px`;
-  });
-
-  // Handle hover effect on interactive elements
-  const interactiveElements = document.querySelectorAll(
-    'button, a, input, .toast'
-  );
-
-  interactiveElements.forEach((element) => {
-    element.addEventListener('mouseenter', () => {
-      cursorDot.classList.add('hover');
-      cursorOutline.classList.add('hover');
+  if (cursorDot && cursorOutline) {
+    document.addEventListener('mousemove', (e) => {
+      const { clientX: x, clientY: y } = e;
+      cursorDot.style.left = `${x}px`;
+      cursorDot.style.top = `${y}px`;
+      cursorOutline.style.left = `${x}px`;
+      cursorOutline.style.top = `${y}px`;
     });
 
-    element.addEventListener('mouseleave', () => {
-      cursorDot.classList.remove('hover');
-      cursorOutline.classList.remove('hover');
+    // Handle hover states on interactive elements
+    const interactiveElements = document.querySelectorAll(
+      'button, a, input, .toast'
+    );
+
+    interactiveElements.forEach((element) => {
+      element.addEventListener('mouseenter', () => {
+        cursorDot.classList.add('hover');
+        cursorOutline.classList.add('hover');
+      });
+
+      element.addEventListener('mouseleave', () => {
+        cursorDot.classList.remove('hover');
+        cursorOutline.classList.remove('hover');
+      });
     });
-  });
 
-  // Handle active state on mouse down and up
-  document.addEventListener('mousedown', () => {
-    cursorDot.classList.add('active');
-    cursorOutline.classList.add('active');
-  });
+    // Active state on mouse down/up
+    document.addEventListener('mousedown', () => {
+      cursorDot.classList.add('active');
+      cursorOutline.classList.add('active');
+    });
 
-  document.addEventListener('mouseup', () => {
-    cursorDot.classList.remove('active');
-    cursorOutline.classList.remove('active');
-  });
+    document.addEventListener('mouseup', () => {
+      cursorDot.classList.remove('active');
+      cursorOutline.classList.remove('active');
+    });
+  } else {
+    console.warn(
+      'Custom cursor elements not found; default cursor will be used.'
+    );
+  }
 
   // Form Submission and Validation
-  const form = document.getElementById('nameForm');
-  const firstName = document.getElementById('firstName');
-  const lastName = document.getElementById('lastName');
-  const firstNameError = document.getElementById('firstNameError');
-  const lastNameError = document.getElementById('lastNameError');
+  const form = safeQuery('#nameForm');
+  const firstName = safeQuery('#firstName');
+  const lastName = safeQuery('#lastName');
+  const firstNameError = safeQuery('#firstNameError');
+  const lastNameError = safeQuery('#lastNameError');
 
-  // Utility function to trigger the shake animation
   function triggerShake(inputElement, errorMessageElement, message) {
-    // Update error message
+    if (!inputElement || !errorMessageElement) return;
+
     errorMessageElement.textContent = message;
-
-    // Remove 'error' class if it exists to allow re-triggering
+    // Reset animation
     inputElement.classList.remove('error');
-
-    // Force reflow to reset animation
-    void inputElement.offsetWidth;
-
-    // Add 'error' class to trigger shake animation
+    void inputElement.offsetWidth; // force reflow
     inputElement.classList.add('error');
   }
 
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
 
-    let hasError = false;
+      let hasError = false;
 
-    // Validate First Name
-    if (!firstName.value.match(/^[a-zA-Z]+$/)) {
-      triggerShake(
-        firstName,
-        firstNameError,
-        'First name must contain only letters.'
-      );
-      hasError = true;
-    } else {
-      firstNameError.textContent = '';
-      firstName.classList.remove('error');
-    }
+      // Validate First Name
+      if (!firstName || !firstName.value.trim()) {
+        if (firstName && firstNameError) {
+          triggerShake(firstName, firstNameError, 'First name is required.');
+        }
+        hasError = true;
+      } else if (!/^[a-zA-Z]+$/.test(firstName.value.trim())) {
+        triggerShake(
+          firstName,
+          firstNameError,
+          'First name must contain only letters.'
+        );
+        hasError = true;
+      } else {
+        if (firstNameError) firstNameError.textContent = '';
+        if (firstName) firstName.classList.remove('error');
+      }
 
-    // Validate Last Name
-    if (!lastName.value.match(/^[a-zA-Z]+$/)) {
-      triggerShake(
-        lastName,
-        lastNameError,
-        'Last name must contain only letters.'
-      );
-      hasError = true;
-    } else {
-      lastNameError.textContent = '';
-      lastName.classList.remove('error');
-    }
+      // Validate Last Name
+      if (!lastName || !lastName.value.trim()) {
+        if (lastName && lastNameError) {
+          triggerShake(lastName, lastNameError, 'Last name is required.');
+        }
+        hasError = true;
+      } else if (!/^[a-zA-Z]+$/.test(lastName.value.trim())) {
+        triggerShake(
+          lastName,
+          lastNameError,
+          'Last name must contain only letters.'
+        );
+        hasError = true;
+      } else {
+        if (lastNameError) lastNameError.textContent = '';
+        if (lastName) lastName.classList.remove('error');
+      }
 
-    if (!hasError) {
-      // Success toast
-      showToast('Form submitted successfully!', 2000);
+      // If no errors, show toast and slider
+      if (!hasError) {
+        showToast('Form submitted successfully!', 2000);
 
-      // Show the slider without auto-closing
-      slider.style.display = 'block'; // Make slider visible
-      slider.classList.remove('slide'); // Reset class if already there
-
-      // Force reflow to allow the animation to restart
-      void slider.offsetWidth;
-
-      // Add slide class to start the animation
-      slider.classList.add('slide');
-    }
-  });
+        if (slider) {
+          slider.style.display = 'block';
+          slider.classList.remove('slide');
+          void slider.offsetWidth; // force reflow
+          slider.classList.add('slide');
+        } else {
+          console.warn(
+            'Slider element not found. Cannot display success overlay.'
+          );
+        }
+      }
+    });
+  } else {
+    console.warn(
+      'Form element not found. Validation and submission logic will not run.'
+    );
+  }
 
   // Handle slider close button click
-  closeSliderButton.addEventListener('click', function () {
-    // Remove the 'slide' class to trigger the slide-out animation
-    slider.classList.remove('slide');
+  if (closeSliderButton && slider) {
+    closeSliderButton.addEventListener('click', function () {
+      slider.classList.remove('slide');
 
-    // Listen for the end of the transition to hide the slider
-    slider.addEventListener('transitionend', function handleTransitionEnd() {
-      slider.style.display = 'none'; // Hide the slider
-      slider.removeEventListener('transitionend', handleTransitionEnd); // Clean up the listener
+      slider.addEventListener('transitionend', function handleTransitionEnd() {
+        slider.style.display = 'none';
+        slider.removeEventListener('transitionend', handleTransitionEnd);
+      });
     });
-  });
-
-  // Remove auto-hide functionality (Commented out)
-  /*
-  slider.addEventListener('transitionend', function () {
-    slider.style.display = 'none'; // hide slider after animation completes
-  });
-  */
+  } else {
+    console.warn(
+      'Slider or close button not found. Cannot close the slider overlay.'
+    );
+  }
 });
