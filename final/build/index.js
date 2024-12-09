@@ -1,4 +1,9 @@
+// index.js
+console.log('JavaScript file loaded successfully.');
+
 document.addEventListener('DOMContentLoaded', function () {
+  console.log('DOMContentLoaded event fired.');
+
   // Safely query elements and warn if missing
   function safeQuery(selector) {
     const el = document.querySelector(selector);
@@ -118,11 +123,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
       // Validate First Name
       if (!firstName || !firstName.value.trim()) {
+        console.log('First name is empty.');
         if (firstName && firstNameError) {
           triggerShake(firstName, firstNameError, 'First name is required.');
         }
         hasError = true;
       } else if (!/^[a-zA-Z]+$/.test(firstName.value.trim())) {
+        console.log('First name contains invalid characters.');
         triggerShake(
           firstName,
           firstNameError,
@@ -140,11 +147,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
       // Validate Last Name
       if (!lastName || !lastName.value.trim()) {
+        console.log('Last name is empty.');
         if (lastName && lastNameError) {
           triggerShake(lastName, lastNameError, 'Last name is required.');
         }
         hasError = true;
       } else if (!/^[a-zA-Z]+$/.test(lastName.value.trim())) {
+        console.log('Last name contains invalid characters.');
         triggerShake(
           lastName,
           lastNameError,
