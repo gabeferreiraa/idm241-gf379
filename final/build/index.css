@@ -1,15 +1,16 @@
+/* Base Styles */
 body {
   font-family: 'Inter', sans-serif;
   background-color: #f6f6f4; /* Light background color from Mailchimp */
   margin: 0;
   padding: 20px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   cursor: none;
 }
 
+/* Card Styles */
 .card {
   background-color: #ffffff; /* White background for cards */
   border-radius: 8px;
@@ -59,365 +60,42 @@ body {
   gap: 25px;
 }
 
-.form {
-  width: 100%;
-  max-width: 600px;
-  margin: 20px auto;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+.card__list {
+  list-style: none;
+  padding: 0;
 }
 
-.form-group {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-label {
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: #333;
-}
-
-.form-input {
-  padding: 10px 12px;
-  border: 2px solid #ffe01b;
-  border-radius: 8px;
-  font-size: 16px;
-  outline: none;
-  transition: border-color 0.3s ease;
-}
-
-.form-input:focus {
-  border-color: #007c89; /* Mailchimp blue */
-}
-
-#formFeedback {
-  margin-top: 16px;
-  padding: 12px 16px;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 600;
-  color: #fff;
-}
-
-#formFeedback.success {
-  background-color: #28a745; /* Green for success */
-}
-
-#formFeedback.error {
-  background-color: #ff4d4d; /* Red for error */
-}
-
-.button {
-  background-color: #ffd700; /* Mailchimp yellow */
-  color: #000; /* Black text */
-  padding: 12px 24px;
-  border: 1px solid #000; /* Black border */
-  border-radius: 25px; /* Rounded edges */
-  font-size: 16px;
-  font-weight: bold;
+.card__list-item {
+  font-weight: 400;
+  margin: 8px 0;
   cursor: pointer;
-  top: 0;
-  transition:
-    border 0.2s ease,
-    transform 0.2s ease;
-  position: relative; /* Keep button in place without affecting layout */
-  will-change: transform; /* Optimize animation performance */
+  transition: all 0.3s ease;
+  padding: 8px;
+  border-radius: 4px;
 }
 
-.button:hover {
-  top: -4px;
-  border-bottom: 6px solid #000; /* Increases the bottom border */
+.card__list-item:hover {
+  background-color: #ffebb8; /* Light yellow shade for hover */
+  transform: scale(1.05);
 }
 
-.button:active {
-  top: 0;
-  border-bottom: 2px solid #000; /* Restores original border width */
-  background-color: #ffc300; /* Slightly darker yellow */
+.sub-list {
+  margin-top: 8px;
+  padding-left: 20px;
+  list-style-type: disc;
 }
 
-.cursor-dot,
-.cursor-outline {
-  position: fixed;
-  pointer-events: none;
-  transition:
-    transform 0.15s ease,
-    opacity 0.15s ease,
-    background-color 0.2s,
-    border-color 0.2s;
-  z-index: 9999;
+.sub-list-item {
+  font-size: 0.9rem;
+  color: #555555;
+  margin: 4px 0;
 }
 
-.cursor-dot {
-  width: 8px;
-  height: 8px;
-  background-color: #000;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.cursor-outline {
-  width: 40px;
-  height: 40px;
-  border: 1px solid #000;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.cursor-dot.hover,
-.cursor-outline.hover {
-  border-color: #000;
-  transform: translate(-50%, -50%) scale(1.5);
-}
-
-.cursor-dot.active,
-.cursor-outline.active {
-  transform: translate(-50%, -50%) scale(0.7);
-}
-.slider {
-  position: fixed;
-  top: 0;
-  left: 0; /* Ensure it starts from the left */
-  width: 100%;
-  height: 100vh;
-  background: #f6f6f4;
-  transform: translateX(100%); /* Start off-screen to the right */
-  transition: transform 2s ease-out; /* Adjusted duration for smoother transition */
-  z-index: 1000; /* Ensure it's above other elements */
-  font-size: 2rem; /* Reduced font size for better readability */
-  padding: 20px; /* Added padding for spacing */
-  box-sizing: border-box; /* Prevent padding from affecting total size */
-  display: none; /* Hidden by default */
-}
-
-/* Slider visible state */
-.slider.slide {
-  transform: translateX(0); /* Slide into view */
-  display: block; /* Make it visible when sliding in */
-}
-
-/* Close Button Styles */
-.close-slider {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: transparent;
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
+.card__list-item:active {
+  background-color: #ffe01b; /* Active state with yellow */
   color: #333333;
-  transition: color 2s ease;
-}
-
-.close-slider:hover {
-  color: #ff4d4d; /* Change color on hover */
-}
-
-/* Slider Content Styles */
-.slider-content {
-  margin-top: 60px; /* Space below the close button */
-  text-align: center;
-}
-
-/* Optional: Adjust font sizes for smaller screens */
-@media only screen and (max-width: 600px) {
-  .slider {
-    font-size: 1.5rem;
-    padding: 15px;
-  }
-
-  .close-slider {
-    font-size: 1.5rem;
-    top: 15px;
-    right: 15px;
-  }
-}
-
-@media only screen and (max-width: 400px) {
-  .slider {
-    font-size: 1rem;
-    padding: 10px;
-  }
-
-  .close-slider {
-    font-size: 1.2rem;
-    top: 10px;
-    right: 10px;
-  }
-}
-.notification-popup {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #333;
-  color: #fff;
-  padding: 15px 20px;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  transform: translateY(100%);
-  transition:
-    transform 0.4s ease,
-    opacity 0.4s ease;
-}
-
-.notification-popup.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.notification-icon {
-  margin-right: 10px;
-  font-size: 20px;
-}
-
-.notification-close {
-  margin-left: auto;
-  cursor: pointer;
-  font-size: 18px;
-}
-
-.notification-popup:hover {
-  background-color: #444;
-}
-
-.error-message {
-  display: none;
-  color: #ff4d4d;
-  margin-top: 5px;
-  animation: fadeInSlideUp 0.3s forwards;
-}
-
-@keyframes fadeInSlideUp {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media only screen and (max-width: 400px) {
-  .card {
-    width: 90%;
-    padding: 12px;
-  }
-
-  .form-input {
-    font-size: 14px;
-    padding: 8px 10px;
-  }
-
-  .button {
-    padding: 10px 16px;
-    font-size: 14px;
-  }
-}
-.form-input.error {
-  border-color: #ff4d4d;
-  animation: shake 0.3s ease-in-out;
-}
-
-@keyframes shake {
-  0%,
-  100% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translateX(-5px);
-  }
-  50% {
-    transform: translateX(5px);
-  }
-  75% {
-    transform: translateX(-5px);
-  }
-}
-/* Toast Notification Styles */
-.toast {
-  position: fixed;
-  bottom: 20px; /* Final position, consistent throughout */
-  right: 20px;
-  padding: 15px 25px;
-  background-color: #ffffff; /* White background */
-  color: #28a745; /* Green text for success */
-  border: 2px solid #28a745; /* Green border */
-  border-radius: 8px;
-  font-size: 18px;
-  font-weight: 600; /* Bold text */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  opacity: 0; /* Initially invisible */
-  transform: translateY(100px); /* Slide from below */
-  transition:
-    opacity 0.6s ease,
-    transform 0.6s ease; /* Smooth fade and slide */
-  z-index: 10000; /* Ensure it's above other elements */
-}
-
-.toast.show {
-  opacity: 1; /* Fully visible */
-  transform: translateY(0); /* Slide into view */
-}
-
-.toast.hide {
-  opacity: 0; /* Fade out */
-  transform: translateY(100px); /* Slide out smoothly */
-}
-
-/* Responsive Design */
-@media only screen and (max-width: 600px) {
-  .card {
-    width: 95%; /* Narrower cards on smaller screens */
-  }
-
-  .form-input {
-    font-size: 14px;
-    padding: 8px 10px;
-  }
-
-  .button {
-    padding: 10px 16px;
-    font-size: 14px;
-  }
-}
-
-@media only screen and (max-width: 400px) {
-  .card__title {
-    font-size: 1rem; /* Adjust title size for small screens */
-  }
-
-  .form-input {
-    font-size: 12px;
-    padding: 6px 8px; /* Compact input fields */
-  }
-
-  .button {
-    padding: 8px 12px;
-    font-size: 12px;
-  }
-}
-/* Error Message Styles */
-.error-message {
-  display: none; /* Hidden by default */
-  color: #ff4d4d;
-  margin-top: 5px;
-  animation: fadeInSlideUp 0.3s forwards;
-}
-
-@keyframes fadeInSlideUp {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  border: 1px solid #333333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 /* Form Styling */
@@ -459,6 +137,161 @@ body {
   animation: shake 0.3s ease-in-out;
 }
 
+#formFeedback {
+  margin-top: 16px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+}
+
+#formFeedback.success {
+  background-color: #28a745; /* Green for success */
+}
+
+#formFeedback.error {
+  background-color: #ff4d4d; /* Red for error */
+}
+
+/* Button Styles */
+.button {
+  background-color: #ffd700; /* Mailchimp yellow */
+  color: #000; /* Black text */
+  padding: 12px 24px;
+  border: 1px solid #000; /* Black border */
+  border-radius: 25px; /* Rounded edges */
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative; /* Keep button in place without affecting layout */
+  transition:
+    border 0.2s ease,
+    transform 0.2s ease;
+  will-change: transform; /* Optimize animation performance */
+}
+
+.button:hover {
+  top: -4px;
+  border-bottom: 6px solid #000; /* Increases the bottom border */
+}
+
+.button:active {
+  top: 0;
+  border-bottom: 2px solid #000; /* Restores original border width */
+  background-color: #ffc300; /* Slightly darker yellow */
+}
+
+/* Custom Cursor */
+.cursor-dot,
+.cursor-outline {
+  position: fixed;
+  pointer-events: none;
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease,
+    background-color 0.2s,
+    border-color 0.2s;
+  z-index: 9999;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #000;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-outline {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-dot.hover,
+.cursor-outline.hover {
+  border-color: #000;
+  transform: translate(-50%, -50%) scale(1.5);
+}
+
+.cursor-dot.active,
+.cursor-outline.active {
+  transform: translate(-50%, -50%) scale(0.7);
+}
+
+/* Slider Styles */
+.slider {
+  position: fixed;
+  top: 0;
+  left: 0; /* Ensure it starts from the left */
+  width: 100%;
+  height: 100vh;
+  background: #f6f6f4;
+  transform: translateX(100%); /* Start off-screen to the right */
+  transition: transform 2s ease-out; /* Adjusted duration for smoother transition */
+  z-index: 1000; /* Ensure it's above other elements */
+  font-size: 2rem; /* Reduced font size for better readability */
+  padding: 20px; /* Added padding for spacing */
+  box-sizing: border-box; /* Prevent padding from affecting total size */
+  display: none; /* Hidden by default */
+}
+
+/* Slider visible state */
+.slider.slide {
+  transform: translateX(0); /* Slide into view */
+  display: block; /* Make it visible when sliding in */
+}
+
+/* Close Button Styles */
+.close-slider {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #333333;
+  transition: color 0.2s ease;
+}
+
+.close-slider:hover {
+  color: #ff4d4d; /* Change color on hover */
+}
+
+/* Slider Content Styles */
+.slider-content {
+  margin-top: 60px; /* Space below the close button */
+  text-align: center;
+}
+
+/* Error Message Styles */
+.error-message {
+  display: none; /* Hidden by default */
+  color: #ff4d4d;
+  margin-top: 5px;
+  animation: fadeInSlideUp 0.3s forwards;
+}
+
+@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-input.error {
+  border-color: #ff4d4d;
+  animation: shake 0.3s ease-in-out;
+}
+
 @keyframes shake {
   0%,
   100% {
@@ -472,5 +305,114 @@ body {
   }
   75% {
     transform: translateX(-5px);
+  }
+}
+
+/* Toast Notification Styles */
+.toast {
+  position: fixed;
+  bottom: 20px; /* Final position, consistent throughout */
+  right: 20px;
+  padding: 15px 25px;
+  background-color: #ffffff; /* White background */
+  color: #28a745; /* Green text for success */
+  border: 2px solid #28a745; /* Green border */
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600; /* Bold text */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  opacity: 0; /* Initially invisible */
+  transform: translateY(100px); /* Slide from below */
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease; /* Smooth fade and slide */
+  z-index: 10000; /* Ensure it's above other elements */
+}
+
+.toast.show {
+  opacity: 1; /* Fully visible */
+  transform: translateY(0); /* Slide into view */
+}
+
+.toast.hide {
+  opacity: 0; /* Fade out */
+  transform: translateY(100px); /* Slide out smoothly */
+}
+
+/* Notification Pop-up Styles */
+.notification-popup {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #333;
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(100%);
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
+}
+
+.notification-popup.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.notification-icon {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.notification-close {
+  margin-left: auto;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* Hover Effect for Notification */
+.notification-popup:hover {
+  background-color: #444;
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 600px) {
+  .card {
+    width: 95%; /* Narrower cards on smaller screens */
+  }
+
+  .form-input {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+
+  .button {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .card {
+    width: 90%;
+    padding: 12px;
+  }
+
+  .form-input {
+    font-size: 12px;
+    padding: 6px 8px; /* Compact input fields */
+  }
+
+  .button {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .card__title {
+    font-size: 1rem; /* Adjust title size for small screens */
   }
 }

@@ -20,42 +20,46 @@
     <div class="card__header">
         <h2 class="card__title">Example</h2>
     </div>
-    <div class="card__body--center">
-        <form id="nameForm" class="form" novalidate>
-            <div class="form-group">
-                <label for="firstName" class="form-label">First Name</label>
-                <input 
-                    type="text" 
-                    id="firstName" 
-                    name="firstName" 
-                    class="form-input" 
-                    placeholder="Enter your first name" 
-                    required 
-                    aria-describedby="firstNameError" 
-                />
-                <div id="firstNameError" class="error-message" aria-live="polite"></div>
-            </div>
-            <div class="form-group">
-                <label for="lastName" class="form-label">Last Name</label>
-                <input 
-                    type="text" 
-                    id="lastName" 
-                    name="lastName" 
-                    class="form-input" 
-                    placeholder="Enter your last name" 
-                    required 
-                    aria-describedby="lastNameError" 
-                />
-                <div id="lastNameError" class="error-message" aria-live="polite"></div>
-            </div>
-            <button type="submit" class="button" id="slideTrigger">Submit</button>
-        </form>
+    <!-- Card 2: Form -->
+    <div class="card">
+        <div class="card__header">
+            <h2 class="card__title">Example</h2>
+        </div>
+        <div class="card__body--center">
+            <form id="nameForm" class="form" novalidate>
+                <div class="form-group">
+                    <label for="firstName" class="form-label">First Name</label>
+                    <input 
+                        type="text" 
+                        id="firstName" 
+                        name="firstName" 
+                        class="form-input" 
+                        placeholder="Enter your first name" 
+                        required 
+                        aria-describedby="firstNameError" 
+                    />
+                    <div id="firstNameError" class="error-message" aria-live="polite"></div>
+                </div>
+                <div class="form-group">
+                    <label for="lastName" class="form-label">Last Name</label>
+                    <input 
+                        type="text" 
+                        id="lastName" 
+                        name="lastName" 
+                        class="form-input" 
+                        placeholder="Enter your last name" 
+                        required 
+                        aria-describedby="lastNameError" 
+                    />
+                    <div id="lastNameError" class="error-message" aria-live="polite"></div>
+                </div>
+                <button type="submit" class="button" id="slideTrigger">Submit</button>
+            </form>
+        </div>
     </div>
-</div>
-<div id="toastNotification" class="toast">Form submitted successfully!</div>
-    <div id="formFeedback" class="form-feedback" style="display: none;">
-        <p id="feedbackMessage"></p>
-    </div>
+
+    <!-- Toast Notification -->
+    <div id="toastNotification" class="toast">Form submitted successfully!</div>
 
     <div class="card">
         <div class="card__header">

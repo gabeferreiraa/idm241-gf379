@@ -23,12 +23,14 @@ document.addEventListener('DOMContentLoaded', function () {
       console.warn('Toast element not found. Cannot show toast message.');
       return;
     }
+    console.log(`Showing toast message: "${message}"`);
     toast.textContent = message;
     toast.classList.add('show');
 
     setTimeout(() => {
       toast.classList.remove('show');
       toast.classList.add('hide');
+      console.log('Hiding toast message');
     }, duration);
   }
 
@@ -36,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
     toast.addEventListener('transitionend', () => {
       if (toast.classList.contains('hide')) {
         toast.classList.remove('hide');
+        console.log('Toast hidden');
       }
     });
   }
@@ -91,10 +94,15 @@ document.addEventListener('DOMContentLoaded', function () {
   const lastNameError = safeQuery('#lastNameError');
 
   function triggerShake(inputElement, errorMessageElement, message) {
-    if (!inputElement || !errorMessageElement) return;
+    if (!inputElement || !errorMessageElement) {
+      console.error('Input element or error message element is missing.');
+      return;
+    }
 
+    console.log(`Triggering shake for ${inputElement.id}: ${message}`);
     errorMessageElement.textContent = message;
     errorMessageElement.style.display = 'block'; // Show the error message
+
     // Reset animation
     inputElement.classList.remove('error');
     void inputElement.offsetWidth; // force reflow
@@ -104,6 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      console.log('Form submission triggered.');
 
       let hasError = false;
 
@@ -122,6 +131,7 @@ document.addEventListener('DOMContentLoaded', function () {
         hasError = true;
       } else {
         if (firstNameError) {
+          console.log('First name is valid.');
           firstNameError.textContent = '';
           firstNameError.style.display = 'none'; // Hide the error message
         }
@@ -143,17 +153,21 @@ document.addEventListener('DOMContentLoaded', function () {
         hasError = true;
       } else {
         if (lastNameError) {
+          console.log('Last name is valid.');
           lastNameError.textContent = '';
           lastNameError.style.display = 'none'; // Hide the error message
         }
         if (lastName) lastName.classList.remove('error');
       }
 
+      console.log(`Form validation completed. hasError: ${hasError}`);
+
       // If no errors, show toast and slider
       if (!hasError) {
         showToast('Form submitted successfully!', 2000);
 
         if (slider) {
+          console.log('Displaying slider.');
           slider.style.display = 'block';
           slider.classList.remove('slide');
           void slider.offsetWidth; // force reflow
@@ -174,10 +188,12 @@ document.addEventListener('DOMContentLoaded', function () {
   // Handle slider close button click
   if (closeSliderButton && slider) {
     closeSliderButton.addEventListener('click', function () {
+      console.log('Close slider button clicked.');
       slider.classList.remove('slide');
 
       slider.addEventListener('transitionend', function handleTransitionEnd() {
         slider.style.display = 'none';
+        console.log('Slider hidden.');
         slider.removeEventListener('transitionend', handleTransitionEnd);
       });
     });
